@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover themed weekly promotions at the fictional Neon Strike Laser Tag arena.">
+  <title>Weekly Specials | Neon Strike Laser Tag</title>
+  <style>
+    :root {
+      --bg: #10111f; --panel: #1b1d31; --accent: #45f3e0;
+      --pink: #ff4fd8; --text: #f4f5ff; --muted: #c2c5d8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    .notice { padding: 12px 18px; background: #282a40; color: white; text-align: center; font-size: .88rem; }
+    header { padding: 22px 6%; background: #151629; border-bottom: 2px solid var(--accent); }
+    .brand { color: var(--accent); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: 2px; text-decoration: none; }
+    .tagline { margin: 2px 0 14px; color: var(--muted); }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    nav a { color: var(--text); text-decoration: none; padding: 8px 13px; border-radius: 6px; font-weight: bold; }
+    nav a:hover, nav a:focus, nav a[aria-current="page"] { background: var(--accent); color: #10111f; }
+    main { max-width: 1000px; margin: auto; padding: 32px 22px 55px; }
+    .intro { padding: clamp(28px, 6vw, 55px); border-radius: 14px; background: radial-gradient(ellipse at top, #30345a, #1b1d31 75%); border: 1px solid #414564; }
+    .eyebrow { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.15; margin: 10px 0; }
+    h2 { color: var(--accent); }
+    h3 { color: var(--pink); margin-top: 0; }
+    .intro p, .card p, .content p, .content li { color: var(--muted); }
+    .section { margin-top: 38px; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { background: var(--panel); border: 1px solid #343752; border-radius: 12px; padding: 23px; }
+    .day { display: inline-block; color: #10111f; background: var(--accent); padding: 5px 10px; border-radius: 5px; font-size: .85rem; font-weight: bold; }
+    .content { margin-top: 28px; padding: 24px; background: #191a2b; border-radius: 10px; }
+    .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
+    footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
+    footer a { color: var(--accent); }
+    footer p { margin: 8px auto; }
+    @media (max-width: 700px) {
+      header { padding: 20px; }
+      nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      nav a { text-align: center; background: #202238; }
+      main { padding: 22px 15px 40px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+
+  <header>
+    <a class="brand" href="index.html">NEON STRIKE</a>
+    <p class="tagline">Light up the arena. Own the game.</p>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties and Events</a>
+      <a href="specials.html" aria-current="page">Weekly Specials</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">A new reason to play</p>
+      <h1>Big Energy.<br>Fresh Challenges.</h1>
+      <p>Every week brings a different way to enjoy the arena. From friendly team competitions to family-focused game nights, our fictional specials give players another reason to gather their crew and take aim.</p>
+      <a class="button" href="#weekly-offers">Explore the Offers</a>
+    </section>
+
+    <section class="section" id="weekly-offers">
+      <h2>This Week at Neon Strike</h2>
+      <p>These fictional promotions are part of the class project. The days and offers below describe an imagined weekly schedule, not actual business deals.</p>
+
+      <div class="cards">
+        <article class="card">
+          <span class="day">MONDAY</span>
+          <h3>Mission Monday</h3>
+          <p>Start the week with a strategy challenge. Players are encouraged to form balanced teams, communicate clearly, and work together to complete each round's objective.</p>
+          <p><strong>Featured activity:</strong> Team-versus-team missions.</p>
+        </article>
+
+        <article class="card">
+          <span class="day">WEDNESDAY</span>
+          <h3>Midweek Match-Up</h3>
+          <p>Bring a friend and see how your strategies compare. Midweek Match-Up focuses on friendly competition, quick decisions, and learning from each round.</p>
+          <p><strong>Featured activity:</strong> Rotating team challenges.</p>
+        </article>
+
+        <article class="card">
+          <span class="day">FRIDAY</span>
+          <h3>Glow Night</h3>
+          <p>Turn Friday into a neon-filled adventure. Imagine glowing arena lights, energetic music, and missions that encourage players to stay alert and support their teammates.</p>
+          <p><strong>Featured activity:</strong> Night-themed arena missions.</p>
+        </article>
+
+        <article class="card">
+          <span class="day">SUNDAY</span>
+          <h3>Family Mission Day</h3>
+          <p>Make time for an active family outing. Players can practice the basics, explore teamwork, and enjoy a shared challenge in a welcoming environment.</p>
+          <p><strong>Featured activity:</strong> Beginner-friendly team play.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Seasonal Challenges</h2>
+      <div class="content">
+        <h3>Squad Score Challenge</h3>
+        <p>Bring your friends, pick a team name, and see how well you work together. The imagined challenge encourages players to communicate, try different strategies, and celebrate team achievements rather than focusing only on individual scores.</p>
+
+        <h3>First-Time Player Mission</h3>
+        <p>New to laser tag? This themed experience gives first-time players a chance to learn the equipment, understand the rules, and build confidence before joining a more competitive round.</p>
+
+        <h3>Family Team Challenge</h3>
+        <p>Families can split into teams and test their coordination through a series of friendly missions. The focus is on participation, cooperation, and making memories together.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How to Make the Most of Your Visit</h2>
+      <div class="content">
+        <ul>
+          <li>Check the featured theme before planning your outing.</li>
+          <li>Bring comfortable clothing and closed-toe shoes for active play.</li>
+          <li>Arrive with enough time to learn the rules and prepare your team.</li>
+          <li>Keep an open mind and try a different strategy in each match.</li>
+        </ul>
+        <p>For this educational website, the specials are illustrative examples only. No real discounts, prices, reservations, or promotional offers are available.</p>
+        <a class="button" href="parties.html">Explore Party Ideas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>NEON STRIKE LASER TAG</strong></p>
+    <p>Fictional location: 2450 Starlight Avenue, Iowa City, Iowa</p>
+    <p><a href="index.html">Home</a> · <a href="about.html">About Us</a> · <a href="parties.html">Parties and Events</a> · <a href="specials.html">Weekly Specials</a></p>
+    <p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+  </footer>
+</body>
+</html>
