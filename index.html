@@ -57,13 +57,52 @@
       color: #10111f;
     }
     main { max-width: 1100px; margin: auto; padding: 32px 22px 55px; }
+
+    /* Neon laser graphics added to the homepage hero */
     .hero {
+      position: relative;
+      overflow: hidden;
       padding: clamp(30px, 7vw, 76px) 25px;
       border: 1px solid #414564;
       border-radius: 16px;
       text-align: center;
-      background: radial-gradient(ellipse at top, #30345a, #1b1d31 70%);
+      background:
+        linear-gradient(155deg, transparent 43%, rgba(255, 79, 216, 0.8) 43.3%, rgba(255, 79, 216, 0.8) 43.6%, transparent 44%),
+        linear-gradient(25deg, transparent 58%, rgba(69, 243, 224, 0.9) 58.3%, rgba(69, 243, 224, 0.9) 58.6%, transparent 59%),
+        linear-gradient(165deg, transparent 67%, rgba(65, 85, 255, 0.8) 67.3%, rgba(65, 85, 255, 0.8) 67.6%, transparent 68%),
+        radial-gradient(ellipse at top, #30345a, #1b1d31 70%);
     }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 48%, rgba(255, 60, 90, 0.85) 48.2%, rgba(255, 60, 90, 0.85) 48.4%, transparent 48.7%),
+        linear-gradient(145deg, transparent 72%, rgba(69, 243, 224, 0.9) 72.2%, rgba(69, 243, 224, 0.9) 72.5%, transparent 72.8%);
+      opacity: 0.85;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 65px;
+      height: 65px;
+      border: 2px solid rgba(69, 243, 224, 0.8);
+      border-radius: 50%;
+      background:
+        linear-gradient(90deg, transparent 48%, #45f3e0 49%, #45f3e0 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, #45f3e0 49%, #45f3e0 51%, transparent 52%);
+      box-shadow: 0 0 12px #45f3e0, inset 0 0 12px rgba(69, 243, 224, 0.4);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .eyebrow {
       color: var(--accent);
       font-weight: bold;
@@ -117,6 +156,12 @@
       nav a { text-align: center; background: #202238; }
       main { padding: 22px 15px 40px; }
       .cards { grid-template-columns: 1fr; }
+      .hero::after {
+        width: 42px;
+        height: 42px;
+        top: 12px;
+        right: 12px;
+      }
     }
   </style>
 </head>
