@@ -1,29 +1,19 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://kadenshea-dm.github.io/legedary-laser-tag/</loc>
   </url>
-
-  <url>
-    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/index.html</loc>
-  </url>
-
-  <url>
-    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/about.html</loc>
-  </url>
-
-  <url>
-    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/parties.html</loc>
-  </url>
-
-  <url>
-    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/specials.html</loc>
-  </url>
-
   <url>
     <loc>https://kadenshea-dm.github.io/legedary-laser-tag/README.md</loc>
   </url>
-
+  <url>
+    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/about.html</loc>
+  </url>
+  <url>
+    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/parties.html</loc>
+  </url>
+  <url>
+    <loc>https://kadenshea-dm.github.io/legedary-laser-tag/specials.html</loc>
+  </url>
 </urlset>
