@@ -31,6 +31,17 @@
     .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
     .card { background: var(--panel); border: 1px solid #343752; border-radius: 12px; padding: 23px; }
     .label { color: var(--accent); font-weight: bold; }
+    .price {
+      color: var(--accent);
+      font-size: 1.9rem;
+      font-weight: 900;
+      margin: 8px 0 2px;
+    }
+    .price-detail {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 0;
+    }
     .content { margin-top: 25px; padding: 24px; background: #191a2b; border-radius: 10px; }
     .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
     footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
@@ -75,19 +86,25 @@
         <article class="card">
           <h3>Birthday Blast</h3>
           <p class="label">For birthday celebrations</p>
+          <p class="price">$149</p>
+          <p class="price-detail">Per party · Up to 8 players</p>
           <p>Gather friends for a birthday filled with laser tag, team rivalries, and plenty of reasons to celebrate. The birthday guest gets the spotlight while everyone else competes for bragging rights.</p>
           <ul>
-            <li>Organized group game time</li>
+            <li>Two laser tag rounds per player</li>
             <li>Birthday shout-out before the match</li>
-            <li>Dedicated party gathering area</li>
+            <li>Dedicated party gathering area for 45 minutes</li>
+            <li>One complimentary birthday guest upgrade</li>
           </ul>
         </article>
 
         <article class="card">
           <h3>Squad Showdown</h3>
           <p class="label">For friends and families</p>
+          <p class="price">$199</p>
+          <p class="price-detail">Per group · Up to 12 players</p>
           <p>Build your teams and see who can communicate, strategize, and score the most points. This package is ideal for reunions, family outings, and groups who enjoy a little friendly rivalry.</p>
           <ul>
+            <li>Three laser tag rounds per player</li>
             <li>Team-based laser tag missions</li>
             <li>Group photo opportunity</li>
             <li>Friendly final-round challenge</li>
@@ -97,14 +114,18 @@
         <article class="card">
           <h3>Team Takeover</h3>
           <p class="label">For schools and organizations</p>
+          <p class="price">$299</p>
+          <p class="price-detail">Per group · Up to 20 players</p>
           <p>Give classmates, clubs, and coworkers a chance to connect outside their usual routines. Work together on the arena floor and discover how much a little competition can bring a group together.</p>
           <ul>
+            <li>Two laser tag rounds per player</li>
             <li>Group mission planning</li>
             <li>Rotating team matchups</li>
-            <li>Optional team-versus-team finale</li>
+            <li>Private team-versus-team finale</li>
           </ul>
         </article>
       </div>
+      <p><em>All prices and package details are fictional and created for this educational class project.</em></p>
     </section>
 
     <section class="section">
@@ -139,7 +160,7 @@
 
     <section class="content">
       <h2>Every Great Celebration Starts with a Plan</h2>
-      <p>For this class-project website, Neon Strike does not accept real reservations. The party packages describe the fictional experiences available at our imagined arena.</p>
+      <p>For this class-project website, Neon Strike does not accept real reservations. The party packages and prices describe fictional experiences available at our imagined arena.</p>
       <a class="button" href="specials.html">Check Weekly Specials</a>
     </section>
   </main>
