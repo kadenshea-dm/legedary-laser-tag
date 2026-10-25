@@ -33,6 +33,62 @@
     .day { display: inline-block; color: #10111f; background: var(--accent); padding: 5px 10px; border-radius: 5px; font-size: .85rem; font-weight: bold; }
     .content { margin-top: 28px; padding: 24px; background: #191a2b; border-radius: 10px; }
     .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
+
+    /* Added calendar styles */
+    .calendar {
+      margin-top: 28px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid #343752;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(69, 243, 224, 0.08);
+    }
+    .calendar h3 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .calendar-day {
+      text-align: center;
+      padding: 8px 2px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    .calendar-date {
+      min-height: 62px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      background: #252740;
+      border: 1px solid #343752;
+      border-radius: 7px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .calendar-date.special {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 8px rgba(69, 243, 224, 0.12);
+    }
+    .calendar-date .event {
+      color: var(--pink);
+      font-size: 0.65rem;
+      font-weight: bold;
+    }
+    .calendar-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 16px;
+    }
+
     footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
     footer a { color: var(--accent); }
     footer p { margin: 8px auto; }
@@ -42,6 +98,11 @@
       nav a { text-align: center; background: #202238; }
       main { padding: 22px 15px 40px; }
       .cards { grid-template-columns: 1fr; }
+      .calendar { padding: 12px 8px; }
+      .calendar-grid { gap: 3px; }
+      .calendar-date { min-height: 48px; font-size: 0.85rem; }
+      .calendar-date .event { font-size: 0.55rem; }
+      .calendar-day { font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -99,6 +160,40 @@
           <p>Make time for an active family outing. Players can practice the basics, explore teamwork, and enjoy a shared challenge in a welcoming environment.</p>
           <p><strong>Featured activity:</strong> Beginner-friendly team play.</p>
         </article>
+      </div>
+    </section>
+
+    <!-- Added weekly specials calendar -->
+    <section class="section" id="specials-calendar">
+      <h2>Monthly Specials Calendar</h2>
+      <p>Use this calendar to see which days feature our fictional laser tag promotions.</p>
+
+      <div class="calendar">
+        <h3>Weekly Specials Schedule</h3>
+
+        <div class="calendar-grid">
+          <div class="calendar-day">Sun</div>
+          <div class="calendar-day">Mon</div>
+          <div class="calendar-day">Tue</div>
+          <div class="calendar-day">Wed</div>
+          <div class="calendar-day">Thu</div>
+          <div class="calendar-day">Fri</div>
+          <div class="calendar-day">Sat</div>
+
+          <div class="calendar-date">Every<br>Sunday<span class="event">Family Day</span></div>
+          <div class="calendar-date special">Every<br>Monday<span class="event">Mission</span></div>
+          <div class="calendar-date">Every<br>Tuesday</div>
+          <div class="calendar-date special">Every<br>Wednesday<span class="event">Match-Up</span></div>
+          <div class="calendar-date">Every<br>Thursday</div>
+          <div class="calendar-date special">Every<br>Friday<span class="event">Glow Night</span></div>
+          <div class="calendar-date">Every<br>Saturday</div>
+        </div>
+
+        <p class="calendar-note">
+          Highlighted days feature Mission Monday, Midweek Match-Up,
+          Glow Night, and Family Mission Day. All promotions are fictional
+          and created for this educational class project.
+        </p>
       </div>
     </section>
 
