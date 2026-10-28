@@ -4,228 +4,746 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore fictional birthday party packages and group events at Neon Strike Laser Tag.">
-  <title>Parties and Events | Neon Strike Laser Tag</title>
+  <meta name="description" content="Explore fictional birthday, group, and team party packages at Neon Strike Laser Tag in Iowa City, Iowa.">
+  <title>Parties &amp; Events | Neon Strike Laser Tag</title>
+
   <style>
     :root {
-      --bg: #10111f; --panel: #1b1d31; --accent: #45f3e0;
-      --pink: #ff4fd8; --text: #f4f5ff; --muted: #c2c5d8;
+      --bg: #10111f;
+      --panel: #1b1d31;
+      --accent: #45f3e0;
+      --pink: #ff4fd8;
+      --purple: #916bff;
+      --text: #f4f5ff;
+      --muted: #b9bfd8;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
-    .notice { padding: 12px 18px; background: #282a40; color: white; text-align: center; font-size: .88rem; }
-    header { padding: 22px 6%; background: #151629; border-bottom: 2px solid var(--accent); }
-    .brand { color: var(--accent); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: 2px; text-decoration: none; }
-    .tagline { margin: 2px 0 14px; color: var(--muted); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px; }
-    nav a { color: var(--text); text-decoration: none; padding: 8px 13px; border-radius: 6px; font-weight: bold; }
-    nav a:hover, nav a:focus, nav a[aria-current="page"] { background: var(--accent); color: #10111f; }
-    main { max-width: 1000px; margin: auto; padding: 32px 22px 55px; }
 
-    /* Added laser and party graphics to the introduction */
-    .intro {
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .notice {
+      padding: 9px 16px;
+      background: #25213f;
+      border-bottom: 1px solid var(--purple);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #151629;
+      border-bottom: 1px solid #343653;
+      padding: 18px 6%;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 35px 20px 65px;
+      margin: auto;
+    }
+
+    /* Neon hero section */
+    .page-hero {
       position: relative;
-      isolation: isolate;
       overflow: hidden;
-      padding: clamp(28px, 6vw, 55px);
-      border-radius: 14px;
+      isolation: isolate;
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid #45416d;
+      border-radius: 22px;
       background:
-        linear-gradient(155deg, transparent 42%, rgba(255, 79, 216, .85) 42.3%, rgba(255, 79, 216, .85) 42.6%, transparent 43%),
-        linear-gradient(25deg, transparent 62%, rgba(69, 243, 224, .9) 62.3%, rgba(69, 243, 224, .9) 62.6%, transparent 63%),
-        radial-gradient(ellipse at top, #30345a, #1b1d31 75%);
-      border: 1px solid #414564;
+        radial-gradient(
+          ellipse at 50% 45%,
+          #34215c 0%,
+          #1b1d39 45%,
+          #10111f 85%
+        );
+      box-shadow: 0 0 28px #916bff22;
     }
-    .intro::before {
-      content: "✦  ✧  ✦  ✧  ✦";
-      position: absolute;
-      z-index: -1;
-      top: 12px;
-      right: 20px;
-      color: var(--pink);
-      font-size: 1.5rem;
-      letter-spacing: 8px;
-      text-shadow: 0 0 8px var(--pink), 0 0 20px var(--pink);
-      pointer-events: none;
-    }
-    .intro::after {
+
+    .page-hero::before,
+    .page-hero::after {
       content: "";
       position: absolute;
+      pointer-events: none;
       z-index: -1;
-      right: 35px;
-      bottom: 28px;
-      width: 62px;
-      height: 62px;
+    }
+
+    .page-hero::before {
+      top: 28%;
+      left: -10%;
+      width: 120%;
+      height: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent), 0 0 28px var(--accent);
+      transform: rotate(-12deg);
+      opacity: 0.75;
+    }
+
+    .page-hero::after {
+      right: 7%;
+      top: 16%;
+      width: 155px;
+      height: 155px;
+      border: 3px solid var(--pink);
+      border-radius: 50%;
+      box-shadow:
+        0 0 12px var(--pink),
+        inset 0 0 15px #ff4fd855;
+      opacity: 0.65;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 7vw, 62px);
+      line-height: 1.15;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px #916bff44;
+    }
+
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 16px #45f3e066;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .target-art {
+      position: absolute;
+      bottom: 18px;
+      left: 28px;
+      width: 72px;
+      height: 72px;
       border: 2px solid var(--accent);
       border-radius: 50%;
-      background:
-        linear-gradient(90deg, transparent 47%, var(--accent) 49%, var(--accent) 51%, transparent 53%),
-        linear-gradient(0deg, transparent 47%, var(--accent) 49%, var(--accent) 51%, transparent 53%);
-      box-shadow: 0 0 12px var(--accent), inset 0 0 12px rgba(69, 243, 224, .4);
-      opacity: .75;
+      box-shadow: 0 0 14px #45f3e066;
+      opacity: 0.7;
       pointer-events: none;
     }
-    .intro > * {
-      position: relative;
-      z-index: 1;
+
+    .target-art::before,
+    .target-art::after {
+      content: "";
+      position: absolute;
+      background: var(--accent);
     }
-    .eyebrow { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.15; margin: 10px 0; }
-    h2 { color: var(--accent); }
-    h3 { color: var(--pink); margin-top: 0; }
-    .intro p, .card p, .content p, .content li { color: var(--muted); }
-    .section { margin-top: 38px; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .card { background: var(--panel); border: 1px solid #343752; border-radius: 12px; padding: 23px; }
-    .label { color: var(--accent); font-weight: bold; }
-    .price {
+
+    .target-art::before {
+      width: 110%;
+      height: 2px;
+      left: -5%;
+      top: 50%;
+    }
+
+    .target-art::after {
+      height: 110%;
+      width: 2px;
+      top: -5%;
+      left: 50%;
+    }
+
+    .target-cross {
+      position: absolute;
+      inset: 16px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    /* General sections */
+    .panel {
+      margin-top: 28px;
+      padding: 30px;
+      background: var(--panel);
+      border: 1px solid #343653;
+      border-radius: 18px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.3;
+    }
+
+    h2 span {
       color: var(--accent);
-      font-size: 1.9rem;
-      font-weight: 900;
-      margin: 8px 0 2px;
     }
-    .price-detail {
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .muted {
       color: var(--muted);
-      font-size: .9rem;
-      margin-top: 0;
     }
-    .content { margin-top: 25px; padding: 24px; background: #191a2b; border-radius: 10px; }
-    .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
-    footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
-    footer a { color: var(--accent); }
-    footer p { margin: 8px auto; }
-    @media (max-width: 700px) {
-      header { padding: 20px; }
-      nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      nav a { text-align: center; background: #202238; }
-      main { padding: 22px 15px 40px; }
-      .cards { grid-template-columns: 1fr; }
-      .intro::after {
-        width: 40px;
-        height: 40px;
-        right: 12px;
-        bottom: 12px;
+
+    .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    /* Party package cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 16px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card.featured {
+      border-color: var(--pink);
+      box-shadow: 0 0 18px #ff4fd811;
+    }
+
+    .graphic-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      color: var(--accent);
+      background: #45f3e012;
+      border: 1px solid #45f3e055;
+      font-size: 26px;
+      font-weight: bold;
+      text-shadow: 0 0 12px #45f3e066;
+    }
+
+    .day {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 12px;
+      padding: 4px 11px;
+      border-radius: 20px;
+      background: #916bff20;
+      border: 1px solid #916bff88;
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin: 8px 0 14px;
+      color: var(--accent);
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .price small {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    .card p {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card ul {
+      margin: 0 0 22px;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .card-bottom {
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #10111f;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px #45f3e066;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--pink);
+      border: 1px solid var(--pink);
+    }
+
+    /* Planning section */
+    .planning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .planning-card {
+      padding: 20px;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 14px;
+    }
+
+    .planning-card h3 {
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .planning-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Call to action */
+    .cta {
+      margin-top: 28px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid #ff4fd855;
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #48234f, #1b1d31 70%);
+    }
+
+    .cta h2 {
+      color: var(--pink);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 10px auto 22px;
+      color: var(--muted);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #343653;
+      background: #0b0c17;
+    }
+
+    .footer-nav {
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer-location {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .planning-grid {
+        grid-template-columns: 1fr;
       }
-      .intro::before {
-        font-size: 1rem;
-        letter-spacing: 4px;
+
+      .page-hero::after {
+        width: 120px;
+        height: 120px;
+        right: -15px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      main {
+        padding: 22px 14px 40px;
+      }
+
+      .page-hero {
+        padding: 45px 16px;
+      }
+
+      .page-hero::after {
+        width: 90px;
+        height: 90px;
+        top: 10px;
+        right: -20px;
+      }
+
+      .target-art {
+        width: 48px;
+        height: 48px;
+        bottom: 12px;
+        left: 12px;
+      }
+
+      .target-cross {
+        inset: 10px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      .cta {
+        padding: 25px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="notice">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+  <div class="notice">
+    This is a fictional website created for educational purposes as part of
+    MKTG:4400 at the University of Iowa. It is not a real business.
+  </div>
 
   <header>
-    <a class="brand" href="index.html">NEON STRIKE</a>
-    <p class="tagline">Light up the arena. Own the game.</p>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="parties.html" aria-current="page">Parties and Events</a>
-      <a href="specials.html">Weekly Specials</a>
-    </nav>
+    <div class="nav">
+      <a class="logo" href="index.html">
+        NEON STRIKE
+        <span>LASER TAG</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="parties.html" aria-current="page">Parties &amp; Events</a>
+        <a href="specials.html">Weekly Specials</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <p class="eyebrow">Make it a celebration</p>
-      <h1>Bring Your Crew.<br>Own the Arena.</h1>
-      <p>Trade the usual get-together for glowing obstacles, team challenges, and friendly competition. Neon Strike makes birthdays, school celebrations, and group outings feel like their own special mission.</p>
+    <!-- Hero section -->
+    <section class="page-hero">
+      <div class="eyebrow">Celebrate • Compete • Make Memories</div>
+
+      <h1>Make It a <span>Party</span></h1>
+
+      <p class="hero-copy">
+        Birthdays, group celebrations, and team challenges deserve more
+        than an ordinary get-together. Explore our fictional party packages
+        and find the right mission for your crew.
+      </p>
+
       <a class="button" href="#packages">Explore Party Packages</a>
+
+      <div class="target-art" aria-hidden="true">
+        <div class="target-cross"></div>
+      </div>
     </section>
 
-    <section class="section" id="packages">
-      <h2>Find Your Party Style</h2>
-      <p>Our fictional packages are designed around different types of celebrations. Choose the experience that best fits your group.</p>
+    <!-- Party packages -->
+    <section class="panel" id="packages">
+      <div class="section-heading">
+        <div class="eyebrow">Choose Your Experience</div>
+        <h2>Our Party <span>Packages</span></h2>
+        <p>
+          Whether you're celebrating a birthday or bringing a group
+          together, choose a package that fits your team and your plans.
+        </p>
+      </div>
 
       <div class="cards">
         <article class="card">
+          <div class="graphic-icon" aria-hidden="true">✦</div>
+          <span class="day">Birthday Celebration</span>
+
           <h3>Birthday Blast</h3>
-          <p class="label">For birthday celebrations</p>
-          <p class="price">$149</p>
-          <p class="price-detail">Per party · Up to 8 players</p>
-          <p>Gather friends for a birthday filled with laser tag, team rivalries, and plenty of reasons to celebrate. The birthday guest gets the spotlight while everyone else competes for bragging rights.</p>
+
+          <div class="price">$149 <small>per party</small></div>
+
+          <p>
+            Make the birthday guest the star of the mission with a fun
+            celebration designed for a small group of friends.
+          </p>
+
           <ul>
-            <li>Two laser tag rounds per player</li>
-            <li>Birthday shout-out before the match</li>
-            <li>Dedicated party gathering area for 45 minutes</li>
-            <li>One complimentary birthday guest upgrade</li>
+            <li>Up to 8 players</li>
+            <li>Two laser tag rounds</li>
+            <li>Birthday shout-out</li>
+            <li>45-minute gathering area</li>
+            <li>Complimentary birthday guest upgrade</li>
           </ul>
+
+          <div class="card-bottom">
+            <a class="button" href="#planning">Plan a Birthday</a>
+          </div>
         </article>
 
-        <article class="card">
+        <article class="card featured">
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <span class="day">Group Challenge</span>
+
           <h3>Squad Showdown</h3>
-          <p class="label">For friends and families</p>
-          <p class="price">$199</p>
-          <p class="price-detail">Per group · Up to 12 players</p>
-          <p>Build your teams and see who can communicate, strategize, and score the most points. This package is ideal for reunions, family outings, and groups who enjoy a little friendly rivalry.</p>
+
+          <div class="price">$199 <small>per group</small></div>
+
+          <p>
+            Bring your squad together for a bigger challenge featuring
+            team missions and a final test of strategy.
+          </p>
+
           <ul>
-            <li>Three laser tag rounds per player</li>
-            <li>Team-based laser tag missions</li>
-            <li>Group photo opportunity</li>
-            <li>Friendly final-round challenge</li>
+            <li>Up to 12 players</li>
+            <li>Three laser tag rounds</li>
+            <li>Team missions</li>
+            <li>Group photo</li>
+            <li>Final challenge</li>
           </ul>
+
+          <div class="card-bottom">
+            <a class="button" href="#planning">Plan a Squad Event</a>
+          </div>
         </article>
 
         <article class="card">
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <span class="day">Large Group</span>
+
           <h3>Team Takeover</h3>
-          <p class="label">For schools and organizations</p>
-          <p class="price">$299</p>
-          <p class="price-detail">Per group · Up to 20 players</p>
-          <p>Give classmates, clubs, and coworkers a chance to connect outside their usual routines. Work together on the arena floor and discover how much a little competition can bring a group together.</p>
+
+          <div class="price">$299 <small>per group</small></div>
+
+          <p>
+            Get your whole crew involved in a larger group experience
+            focused on communication, teamwork, and friendly competition.
+          </p>
+
           <ul>
-            <li>Two laser tag rounds per player</li>
-            <li>Group mission planning</li>
-            <li>Rotating team matchups</li>
-            <li>Private team-versus-team finale</li>
+            <li>Up to 20 players</li>
+            <li>Two laser tag rounds</li>
+            <li>Mission planning</li>
+            <li>Rotating matchups</li>
+            <li>Private finale</li>
           </ul>
-        </article>
-      </div>
-      <p><em>All prices and package details are fictional and created for this educational class project.</em></p>
-    </section>
 
-    <section class="section">
-      <h2>How to Plan Your Event</h2>
-      <div class="content">
-        <ol>
-          <li><strong>Choose your occasion.</strong> Decide whether you are celebrating a birthday, planning a family outing, or organizing a group event.</li>
-          <li><strong>Estimate your group size.</strong> Make a guest list and consider the ages and experience levels of your players.</li>
-          <li><strong>Pick your activities.</strong> Think about team challenges, multiple rounds, and time to gather between matches.</li>
-          <li><strong>Confirm the details.</strong> For a real booking, a host would need to confirm availability, pricing, participant requirements, and any food or room arrangements.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>What Should Guests Bring?</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Comfortable Clothing</h3>
-          <p>Wear clothes that allow you to move easily, along with closed-toe shoes suitable for active play.</p>
-        </article>
-        <article class="card">
-          <h3>A Team Mindset</h3>
-          <p>Encourage players to communicate, follow arena instructions, and respect their teammates and opponents.</p>
-        </article>
-        <article class="card">
-          <h3>A Sense of Adventure</h3>
-          <p>No previous laser tag experience is needed in this fictional arena. New players can learn the rules before their first mission.</p>
+          <div class="card-bottom">
+            <a class="button" href="#planning">Plan a Team Event</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="content">
-      <h2>Every Great Celebration Starts with a Plan</h2>
-      <p>For this class-project website, Neon Strike does not accept real reservations. The party packages and prices describe fictional experiences available at our imagined arena.</p>
-      <a class="button" href="specials.html">Check Weekly Specials</a>
+    <!-- Planning information -->
+    <section class="panel" id="planning">
+      <div class="section-heading">
+        <div class="eyebrow">Get Ready for Game Day</div>
+        <h2>Plan Your <span>Event</span></h2>
+        <p>
+          A little preparation can help your group make the most of
+          its fictional Neon Strike experience.
+        </p>
+      </div>
+
+      <div class="planning-grid">
+        <article class="planning-card">
+          <div class="graphic-icon" aria-hidden="true">01</div>
+          <h3>Choose Your Package</h3>
+          <p>
+            Review the package options and select the experience that
+            best suits your group size and celebration.
+          </p>
+        </article>
+
+        <article class="planning-card">
+          <div class="graphic-icon" aria-hidden="true">02</div>
+          <h3>Gather Your Crew</h3>
+          <p>
+            Invite your friends, family members, or teammates and decide
+            who will join your laser tag mission.
+          </p>
+        </article>
+
+        <article class="planning-card">
+          <div class="graphic-icon" aria-hidden="true">03</div>
+          <h3>Get Ready to Play</h3>
+          <p>
+            Bring your team spirit, think up a strategy, and get ready
+            for a celebration filled with friendly competition.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="cta">
+      <div class="eyebrow">Your Group. Your Mission.</div>
+
+      <h2>Ready to Take Over the Arena?</h2>
+
+      <p>
+        Explore our weekly specials for more fictional offers and
+        themed challenges, or visit our About Us page to learn more
+        about the Neon Strike concept.
+      </p>
+
+      <div class="cta-buttons">
+        <a class="button" href="specials.html">Explore Weekly Specials</a>
+        <a class="button secondary" href="about.html">About Neon Strike</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p><strong>NEON STRIKE LASER TAG</strong></p>
-    <p>Fictional location: 2450 Starlight Avenue, Iowa City, Iowa</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About Us</a> · <a href="parties.html">Parties and Events</a> · <a href="specials.html">Weekly Specials</a></p>
-    <p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+    <a class="logo" href="index.html">
+      NEON STRIKE
+      <span>LASER TAG</span>
+    </a>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties &amp; Events</a>
+      <a href="specials.html">Weekly Specials</a>
+    </div>
+
+    <p class="footer-location">Fictional location: Iowa City, Iowa.</p>
+
+    <div class="notice">
+      This is a fictional website created for educational purposes as part of
+      MKTG:4400 at the University of Iowa. It is not a real business.
+    </div>
   </footer>
 </body>
 </html>
