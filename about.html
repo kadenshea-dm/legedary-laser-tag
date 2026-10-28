@@ -4,116 +4,591 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about the fictional team, arena, and mission behind Neon Strike Laser Tag.">
+  <meta name="description" content="Learn about Neon Strike Laser Tag in Iowa City, Iowa, and discover our story, values, and passion for exciting laser tag experiences.">
   <title>About Us | Neon Strike Laser Tag</title>
+
   <style>
     :root {
-      --bg: #10111f; --panel: #1b1d31; --accent: #45f3e0;
-      --pink: #ff4fd8; --text: #f4f5ff; --muted: #c2c5d8;
+      --bg: #10111f;
+      --panel: #1b1d31;
+      --accent: #45f3e0;
+      --pink: #ff4fd8;
+      --purple: #916bff;
+      --text: #f4f5ff;
+      --muted: #b9bfd8;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
-    .notice { padding: 12px 18px; background: #282a40; color: white; text-align: center; font-size: .88rem; }
-    header { padding: 22px 6%; background: #151629; border-bottom: 2px solid var(--accent); }
-    .brand { color: var(--accent); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: 2px; text-decoration: none; }
-    .tagline { margin: 2px 0 14px; color: var(--muted); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px; }
-    nav a { color: var(--text); text-decoration: none; padding: 8px 13px; border-radius: 6px; font-weight: bold; }
-    nav a:hover, nav a:focus, nav a[aria-current="page"] { background: var(--accent); color: #10111f; }
-    main { max-width: 1000px; margin: auto; padding: 32px 22px 55px; }
-    .intro { padding: clamp(28px, 6vw, 55px); border-radius: 14px; background: radial-gradient(ellipse at top, #30345a, #1b1d31 75%); border: 1px solid #414564; }
-    .eyebrow { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.15; margin: 10px 0; }
-    h2 { color: var(--accent); }
-    h3 { color: var(--pink); margin-top: 0; }
-    .intro p, .card p, .content p, .content li { color: var(--muted); }
-    .section { margin-top: 38px; }
-    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .card { background: var(--panel); border: 1px solid #343752; border-radius: 12px; padding: 23px; }
-    .content { margin-top: 28px; padding: 24px; background: #191a2b; border-radius: 10px; }
-    .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
-    footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
-    footer a { color: var(--accent); }
-    footer p { margin: 8px auto; }
-    @media (max-width: 700px) {
-      header { padding: 20px; }
-      nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      nav a { text-align: center; background: #202238; }
-      main { padding: 22px 15px 40px; }
-      .cards { grid-template-columns: 1fr; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .notice {
+      padding: 9px 16px;
+      background: #25213f;
+      border-bottom: 1px solid var(--purple);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #151629;
+      border-bottom: 1px solid #343653;
+      padding: 18px 6%;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 35px 20px 65px;
+      margin: auto;
+    }
+
+    /* Neon laser hero */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid #45416d;
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 50% 45%,
+          #34215c 0%, #1b1d39 45%, #10111f 85%);
+      box-shadow: 0 0 28px #916bff22;
+    }
+
+    .page-hero::before,
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .page-hero::before {
+      inset: 0;
+      background:
+        linear-gradient(115deg, transparent 30%,
+          #45f3e055 30.3%, transparent 30.7%),
+        linear-gradient(155deg, transparent 56%,
+          #ff4fd855 56.3%, transparent 56.7%),
+        linear-gradient(25deg, transparent 65%,
+          #916bff66 65.3%, transparent 65.7%);
+    }
+
+    .page-hero::after {
+      width: 180px;
+      height: 180px;
+      border: 2px solid #45f3e077;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 18px #45f3e010,
+        0 0 0 38px #ff4fd810,
+        0 0 30px #45f3e033;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.1;
+      margin: 14px 0;
+      text-shadow: 0 0 22px #916bff99;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 18px auto 0;
+      color: #e2e5fa;
+    }
+
+    .target-art {
+      width: 115px;
+      height: 115px;
+      margin: 30px auto 0;
+      border: 3px solid var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background: #10111f99;
+      box-shadow:
+        0 0 15px #45f3e088,
+        inset 0 0 18px #45f3e033;
+    }
+
+    .target-art::before,
+    .target-art::after {
+      content: "";
+      position: absolute;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    .target-art::before {
+      inset: 17px;
+    }
+
+    .target-art::after {
+      inset: 36px;
+      border-color: var(--accent);
+      background: #ff4fd855;
+      box-shadow: 0 0 15px var(--pink);
+    }
+
+    .target-cross {
+      position: absolute;
+      width: 145px;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .target-cross.vertical {
+      transform: rotate(90deg);
+    }
+
+    .panel {
+      margin-top: 28px;
+      padding: 30px;
+      border: 1px solid #343653;
+      border-radius: 18px;
+      background: var(--panel);
+    }
+
+    h2 {
+      color: var(--accent);
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    .story-grid,
+    .values,
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .story-card,
+    .value,
+    .location-card {
+      background: #141629;
+      border: 1px solid #373958;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .value {
+      border-top: 3px solid var(--pink);
+    }
+
+    .value:nth-child(even) {
+      border-top-color: var(--accent);
+    }
+
+    .graphic-icon {
+      font-size: 30px;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+
+    .value h3,
+    .story-card h3,
+    .location-card h3 {
+      margin: 5px 0 10px;
+      color: white;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .location-panel {
+      position: relative;
+      overflow: hidden;
+      border-color: #45f3e066;
+      background:
+        radial-gradient(ellipse at 100% 0%,
+          #45f3e01b, transparent 55%),
+        var(--panel);
+    }
+
+    .location-label {
+      display: inline-block;
+      padding: 5px 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .map-art {
+      min-height: 180px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid #45416d;
+      background-color: #111528;
+      background-image:
+        linear-gradient(30deg, transparent 47%,
+          #45f3e044 48%, transparent 49%),
+        linear-gradient(120deg, transparent 35%,
+          #916bff55 36%, transparent 37%),
+        repeating-linear-gradient(0deg,
+          transparent 0 28px, #ffffff0c 29px 30px),
+        repeating-linear-gradient(90deg,
+          transparent 0 28px, #ffffff0c 29px 30px);
+      display: grid;
+      place-items: center;
+    }
+
+    .map-pin {
+      text-align: center;
+      color: var(--accent);
+      font-size: 42px;
+      line-height: 1.2;
+      filter: drop-shadow(0 0 12px #45f3e099);
+    }
+
+    .map-pin span {
+      display: block;
+      margin-top: 8px;
+      color: white;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .cta {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 16px;
+      text-align: center;
+      background: linear-gradient(110deg, #302052, #172d3c);
+      border: 1px solid #45f3e055;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #10111f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #343653;
+      background: #0b0c17;
+    }
+
+    .footer-nav {
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      main {
+        padding: 22px 14px 40px;
+      }
+
+      .page-hero {
+        padding: 45px 16px;
+      }
+
+      .story-grid,
+      .values,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      .page-hero::after {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="notice">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+  <div class="notice">
+    This is a fictional website created for educational purposes as part of
+    MKTG:4400 at the University of Iowa. It is not a real business.
+  </div>
 
   <header>
-    <a class="brand" href="index.html">NEON STRIKE</a>
-    <p class="tagline">Light up the arena. Own the game.</p>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html" aria-current="page">About Us</a>
-      <a href="parties.html">Parties and Events</a>
-      <a href="specials.html">Weekly Specials</a>
-    </nav>
+    <div class="nav">
+      <a class="logo" href="index.html">
+        NEON STRIKE
+        <span>LASER TAG</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About Us</a>
+        <a href="parties.html">Parties &amp; Events</a>
+        <a href="specials.html">Weekly Specials</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <p class="eyebrow">Meet the team behind the glow</p>
-      <h1>More Than Just a Game</h1>
-      <p>Neon Strike Laser Tag was imagined by three friends who wanted to create a place where people could unplug from their routines, challenge themselves, and have fun together. Our fictional arena brings that idea to life through glowing scenery, team missions, and a welcoming atmosphere.</p>
-    </section>
+    <section class="page-hero">
+      <div class="eyebrow">Our Story • Our Arena • Our Community</div>
 
-    <section class="section">
-      <h2>Our Story</h2>
-      <div class="content">
-        <p>The idea began when Jordan Ellis, Maya Brooks, and Ethan Cole organized a laser tag night for their friends. They loved how quickly strangers became teammates and how each match brought out a different mix of strategy, confidence, and laughter.</p>
-        <p>They imagined Neon Strike as a place for all kinds of players: first-timers learning the equipment, competitive friends chasing a high score, and families making memories together. The result is a fictional entertainment business built around a simple idea: the best games are the ones everyone can enjoy.</p>
+      <h1>More Than Just <span>a Game</span></h1>
+
+      <p class="hero-copy">
+        At Neon Strike Laser Tag, strategy meets teamwork in a
+        neon-powered world of friendly competition. We're all about
+        bringing people together for memorable adventures.
+      </p>
+
+      <div class="target-art" role="img"
+           aria-label="Decorative neon laser targeting graphic">
+        <div class="target-cross"></div>
+        <div class="target-cross vertical"></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Meet Our Founders</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Jordan Ellis — Arena Director</h3>
-          <p>Jordan loves designing missions that reward communication and creative thinking. Jordan's goal is to make every round feel exciting, whether players are brand new or already planning their next strategy.</p>
+    <section class="panel">
+      <h2>How It All Started</h2>
+
+      <div class="story-grid">
+        <article class="story-card">
+          <div class="graphic-icon" aria-hidden="true">✦</div>
+          <h3>A Bright Idea</h3>
+          <p class="muted">
+            Neon Strike Laser Tag began with a simple idea from fictional
+            founder Jordan Ellis: create a place where friends, families,
+            and teammates could step away from everyday routines and
+            share an exciting adventure.
+          </p>
         </article>
-        <article class="card">
-          <h3>Maya Brooks — Guest Experience Lead</h3>
-          <p>Maya focuses on helping guests feel comfortable, welcomed, and ready to play. From explaining the rules to organizing group visits, Maya believes a great experience begins before the first match.</p>
-        </article>
-        <article class="card">
-          <h3>Ethan Cole — Game Operations Lead</h3>
-          <p>Ethan enjoys the technical side of the arena, from checking equipment to developing fun team challenges. Ethan works to keep the action organized and the game moving.</p>
-        </article>
-        <article class="card">
-          <h3>Our Shared Mission</h3>
-          <p>We want players to leave feeling energized, connected, and eager to come back. Respect, teamwork, and friendly competition are at the center of every Neon Strike mission.</p>
+
+        <article class="story-card">
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <h3>Built for Adventure</h3>
+          <p class="muted">
+            With fictional co-founder Maya Chen helping shape the vision,
+            Neon Strike grew into a concept centered on immersive
+            lighting, strategic gameplay, friendly rivalries, and
+            unforgettable group experiences.
+          </p>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <h2>What Makes Us Different?</h2>
-      <div class="content">
-        <ul>
-          <li><strong>Team-focused play:</strong> Winning takes communication, cooperation, and smart decisions.</li>
-          <li><strong>A welcoming atmosphere:</strong> New players can learn the basics before stepping into a match.</li>
-          <li><strong>Reasons to return:</strong> Rotating mission themes and weekly specials keep each visit interesting.</li>
-          <li><strong>Celebrations with a twist:</strong> Groups can make their next birthday or get-together an active experience.</li>
-        </ul>
-        <a class="button" href="parties.html">Plan Your Next Visit</a>
+    <section class="panel">
+      <h2>What We Believe In</h2>
+
+      <div class="values">
+        <article class="value">
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <h3>Excitement for Everyone</h3>
+          <p class="muted">
+            Every game is an opportunity to try something new, challenge
+            yourself, and have fun with people you enjoy.
+          </p>
+        </article>
+
+        <article class="value">
+          <div class="graphic-icon" aria-hidden="true">✧</div>
+          <h3>Teamwork Wins</h3>
+          <p class="muted">
+            Communication, strategy, and cooperation make every match
+            more rewarding, whether you're playing with friends or
+            meeting new teammates.
+          </p>
+        </article>
+
+        <article class="value">
+          <div class="graphic-icon" aria-hidden="true">★</div>
+          <h3>Friendly Competition</h3>
+          <p class="muted">
+            We believe the best competition combines big moments,
+            good sportsmanship, and plenty of laughs.
+          </p>
+        </article>
+
+        <article class="value">
+          <div class="graphic-icon" aria-hidden="true">◇</div>
+          <h3>Memorable Moments</h3>
+          <p class="muted">
+            From birthday celebrations to group outings, the goal is
+            to create stories worth sharing long after the game ends.
+          </p>
+        </article>
       </div>
+    </section>
+
+    <section class="panel location-panel">
+      <span class="location-label">Our Fictional Location</span>
+      <h2>Find Us in Iowa City, Iowa</h2>
+
+      <div class="location-grid">
+        <div class="location-card">
+          <h3>Right Here in Iowa City</h3>
+          <p class="muted">
+            Neon Strike Laser Tag is presented as a fictional laser tag
+            destination in Iowa City, Iowa. The concept is designed for
+            local families, friends, students, and groups looking for
+            an action-packed activity.
+          </p>
+
+          <p>
+            <strong>City:</strong> Iowa City<br>
+            <strong>State:</strong> Iowa
+          </p>
+
+          <p class="muted">
+            This location is part of a student project and does not
+            represent an operating business.
+          </p>
+        </div>
+
+        <div class="map-art"
+             role="img"
+             aria-label="Decorative neon map graphic representing Iowa City, Iowa">
+          <div class="map-pin" aria-hidden="true">
+            ◎
+            <span>IOWA CITY, IOWA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Enter the Arena?</h2>
+      <p class="muted">
+        Explore our fictional party packages and weekly specials
+        to see what a Neon Strike adventure could look like.
+      </p>
+      <a href="parties.html">Explore Parties &amp; Events</a>
     </section>
   </main>
 
   <footer>
-    <p><strong>NEON STRIKE LASER TAG</strong></p>
-    <p>Fictional location: 2450 Starlight Avenue, Iowa City, Iowa</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About Us</a> · <a href="parties.html">Parties and Events</a> · <a href="specials.html">Weekly Specials</a></p>
-    <p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+    <strong>Neon Strike Laser Tag</strong>
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties &amp; Events</a>
+      <a href="specials.html">Weekly Specials</a>
+    </div>
+
+    <p class="muted">Fictional location: Iowa City, Iowa.</p>
+
+    <div class="notice">
+      This is a fictional website created for educational purposes as part of
+      MKTG:4400 at the University of Iowa. It is not a real business.
+    </div>
   </footer>
 </body>
 </html>
