@@ -4,224 +4,668 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Experience action-packed laser tag, birthday parties, and weekly specials at Neon Strike Laser Tag.">
+  <meta name="description" content="Discover Neon Strike Laser Tag in Iowa City, Iowa, and experience a fictional world of neon lights, teamwork, and friendly competition.">
   <title>Neon Strike Laser Tag | Home</title>
+
   <style>
     :root {
       --bg: #10111f;
       --panel: #1b1d31;
       --accent: #45f3e0;
       --pink: #ff4fd8;
+      --purple: #916bff;
       --text: #f4f5ff;
-      --muted: #c2c5d8;
+      --muted: #b9bfd8;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
     }
-    .notice {
-      padding: 12px 18px;
-      background: #282a40;
-      color: white;
-      text-align: center;
-      font-size: 0.88rem;
-    }
-    header {
-      padding: 22px 6%;
-      background: #151629;
-      border-bottom: 2px solid var(--accent);
-    }
-    .brand {
+
+    a {
       color: var(--accent);
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-decoration: none;
     }
-    .tagline { margin: 2px 0 14px; color: var(--muted); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .notice {
+      padding: 9px 16px;
+      background: #25213f;
+      border-bottom: 1px solid var(--purple);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #151629;
+      border-bottom: 1px solid #343653;
+      padding: 18px 6%;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: var(--text);
       text-decoration: none;
-      padding: 8px 13px;
-      border-radius: 6px;
-      font-weight: bold;
+      font-size: 14px;
     }
-    nav a:hover, nav a:focus, nav a[aria-current="page"] {
-      background: var(--accent);
-      color: #10111f;
-    }
-    main { max-width: 1100px; margin: auto; padding: 32px 22px 55px; }
 
-    /* Neon laser graphics added to the homepage hero */
-    .hero {
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 35px 20px 65px;
+      margin: auto;
+    }
+
+    /* Main neon hero */
+    .page-hero {
       position: relative;
       overflow: hidden;
-      padding: clamp(30px, 7vw, 76px) 25px;
-      border: 1px solid #414564;
-      border-radius: 16px;
+      isolation: isolate;
       text-align: center;
+      padding: 75px 25px;
+      border: 1px solid #45416d;
+      border-radius: 22px;
       background:
-        linear-gradient(155deg, transparent 43%, rgba(255, 79, 216, 0.8) 43.3%, rgba(255, 79, 216, 0.8) 43.6%, transparent 44%),
-        linear-gradient(25deg, transparent 58%, rgba(69, 243, 224, 0.9) 58.3%, rgba(69, 243, 224, 0.9) 58.6%, transparent 59%),
-        linear-gradient(165deg, transparent 67%, rgba(65, 85, 255, 0.8) 67.3%, rgba(65, 85, 255, 0.8) 67.6%, transparent 68%),
-        radial-gradient(ellipse at top, #30345a, #1b1d31 70%);
+        radial-gradient(
+          ellipse at 50% 45%,
+          #34215c 0%,
+          #1b1d39 45%,
+          #10111f 85%
+        );
+      box-shadow: 0 0 28px #916bff22;
     }
-    .hero::before {
+
+    .page-hero::before {
       content: "";
       position: absolute;
-      inset: 0;
+      z-index: -1;
+      top: 25%;
+      left: -10%;
+      width: 120%;
+      height: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent), 0 0 28px var(--accent);
+      transform: rotate(-12deg);
+      opacity: 0.75;
       pointer-events: none;
-      background:
-        linear-gradient(115deg, transparent 48%, rgba(255, 60, 90, 0.85) 48.2%, rgba(255, 60, 90, 0.85) 48.4%, transparent 48.7%),
-        linear-gradient(145deg, transparent 72%, rgba(69, 243, 224, 0.9) 72.2%, rgba(69, 243, 224, 0.9) 72.5%, transparent 72.8%);
-      opacity: 0.85;
     }
-    .hero::after {
+
+    .page-hero::after {
       content: "";
       position: absolute;
-      top: 22px;
-      right: 22px;
-      width: 65px;
-      height: 65px;
-      border: 2px solid rgba(69, 243, 224, 0.8);
+      z-index: -1;
+      right: 7%;
+      top: 17%;
+      width: 170px;
+      height: 170px;
+      border: 3px solid var(--pink);
       border-radius: 50%;
-      background:
-        linear-gradient(90deg, transparent 48%, #45f3e0 49%, #45f3e0 51%, transparent 52%),
-        linear-gradient(0deg, transparent 48%, #45f3e0 49%, #45f3e0 51%, transparent 52%);
-      box-shadow: 0 0 12px #45f3e0, inset 0 0 12px rgba(69, 243, 224, 0.4);
-      opacity: 0.8;
+      box-shadow:
+        0 0 12px var(--pink),
+        inset 0 0 15px #ff4fd855;
+      opacity: 0.65;
       pointer-events: none;
-    }
-    .hero > * {
-      position: relative;
-      z-index: 1;
     }
 
     .eyebrow {
       color: var(--accent);
-      font-weight: bold;
       text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
       letter-spacing: 3px;
+      margin-bottom: 14px;
     }
-    h1 { font-size: clamp(2.3rem, 7vw, 4.5rem); line-height: 1.1; margin: 14px 0; }
-    h2 { color: var(--accent); line-height: 1.25; }
-    .hero p { max-width: 650px; margin: 16px auto 25px; color: var(--muted); font-size: 1.1rem; }
+
+    h1 {
+      position: relative;
+      margin: 0 0 18px;
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.12;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px #916bff44;
+    }
+
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 16px #45f3e066;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
     .button {
       display: inline-block;
-      background: var(--pink);
-      color: #171020;
-      padding: 12px 20px;
+      padding: 12px 22px;
       border-radius: 7px;
+      background: var(--accent);
+      color: #10111f;
       font-weight: bold;
       text-decoration: none;
-      margin: 5px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .button.secondary { background: var(--accent); }
-    .button:hover, .button:focus { filter: brightness(1.15); }
-    .section { margin-top: 42px; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .card {
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px #45f3e066;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--pink);
+      border: 1px solid var(--pink);
+    }
+
+    .target-art {
+      position: absolute;
+      bottom: 18px;
+      left: 30px;
+      width: 75px;
+      height: 75px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px #45f3e066;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .target-art::before,
+    .target-art::after {
+      content: "";
+      position: absolute;
+      background: var(--accent);
+    }
+
+    .target-art::before {
+      width: 110%;
+      height: 2px;
+      left: -5%;
+      top: 50%;
+    }
+
+    .target-art::after {
+      height: 110%;
+      width: 2px;
+      top: -5%;
+      left: 50%;
+    }
+
+    .target-cross {
+      position: absolute;
+      inset: 17px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    /* Content panels */
+    .panel {
+      margin-top: 28px;
+      padding: 30px;
       background: var(--panel);
-      border: 1px solid #343752;
-      border-radius: 12px;
-      padding: 22px;
+      border: 1px solid #343653;
+      border-radius: 18px;
     }
-    .card h3 { color: var(--pink); margin-top: 0; }
-    .card p { color: var(--muted); }
-    .banner {
-      margin-top: 35px;
-      padding: 25px;
-      background: #25213b;
-      border-left: 5px solid var(--pink);
-      border-radius: 8px;
-    }
-    footer {
-      padding: 28px 20px;
+
+    .section-heading {
       text-align: center;
-      background: #151629;
-      border-top: 2px solid var(--accent);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.25;
+    }
+
+    h2 span {
+      color: var(--accent);
+    }
+
+    .muted {
       color: var(--muted);
     }
-    footer a { color: var(--accent); }
-    footer p { margin: 8px auto; }
-    @media (max-width: 700px) {
-      header { padding: 20px; }
-      nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      nav a { text-align: center; background: #202238; }
-      main { padding: 22px 15px 40px; }
-      .cards { grid-template-columns: 1fr; }
-      .hero::after {
-        width: 42px;
-        height: 42px;
-        top: 12px;
-        right: 12px;
+
+    .section-heading p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 23px;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 14px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .graphic-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      color: var(--accent);
+      background: #45f3e012;
+      border: 1px solid #45f3e055;
+      font-size: 25px;
+      font-weight: bold;
+      text-shadow: 0 0 12px #45f3e066;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .text-link {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .text-link:hover {
+      color: var(--pink);
+    }
+
+    /* Welcome section */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .welcome-copy p {
+      color: var(--muted);
+    }
+
+    .feature-box {
+      padding: 23px;
+      border-radius: 14px;
+      border: 1px solid #916bff66;
+      background:
+        radial-gradient(ellipse at top right, #34215c, #151629 70%);
+    }
+
+    .feature-box h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .feature-list {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .feature-list li {
+      margin-bottom: 8px;
+    }
+
+    /* Highlight section */
+    .highlight {
+      position: relative;
+      overflow: hidden;
+      margin-top: 28px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid #ff4fd855;
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #48234f, #1b1d31 70%);
+    }
+
+    .highlight h2 {
+      color: var(--pink);
+    }
+
+    .highlight p {
+      max-width: 650px;
+      margin: 10px auto 22px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #343653;
+      background: #0b0c17;
+    }
+
+    .footer-nav {
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer-location {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .welcome-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero::after {
+        width: 125px;
+        height: 125px;
+        right: -15px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      main {
+        padding: 22px 14px 40px;
+      }
+
+      .page-hero {
+        padding: 48px 17px;
+      }
+
+      .page-hero::after {
+        width: 90px;
+        height: 90px;
+        top: 10px;
+        right: -20px;
+      }
+
+      .target-art {
+        width: 48px;
+        height: 48px;
+        bottom: 12px;
+        left: 12px;
+      }
+
+      .target-cross {
+        inset: 10px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      .highlight {
+        padding: 25px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="notice">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+  <div class="notice">
+    This is a fictional website created for educational purposes as part of
+    MKTG:4400 at the University of Iowa. It is not a real business.
+  </div>
 
   <header>
-    <a class="brand" href="index.html">NEON STRIKE</a>
-    <p class="tagline">Light up the arena. Own the game.</p>
-    <nav aria-label="Main navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="parties.html">Parties and Events</a>
-      <a href="specials.html">Weekly Specials</a>
-    </nav>
+    <div class="nav">
+      <a class="logo" href="index.html">
+        NEON STRIKE
+        <span>LASER TAG</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="parties.html">Parties &amp; Events</a>
+        <a href="specials.html">Weekly Specials</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <p class="eyebrow">Your next adventure starts here</p>
-      <h1>Ready, Aim,<br>Light It Up.</h1>
-      <p>Step into the glow at Neon Strike Laser Tag, where glowing obstacles, fast-paced missions, and friendly competition turn an ordinary day into an unforgettable adventure.</p>
-      <a class="button" href="parties.html">Plan Your Party</a>
-      <a class="button secondary" href="specials.html">Explore Weekly Specials</a>
+    <!-- Main hero -->
+    <section class="page-hero">
+      <div class="eyebrow">Lights • Strategy • Teamwork</div>
+
+      <h1>Enter the <span>Neon Zone</span></h1>
+
+      <p class="hero-copy">
+        Get ready for an action-packed laser tag experience where teamwork,
+        strategy, and friendly competition come together. Gather your crew,
+        step into the arena, and make every mission unforgettable.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button" href="parties.html">Explore Parties &amp; Events</a>
+        <a class="button secondary" href="specials.html">View Weekly Specials</a>
+      </div>
+
+      <div class="target-art" aria-hidden="true">
+        <div class="target-cross"></div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Choose Your Mission</h2>
-      <p>Whether you are bringing your friends, celebrating a birthday, or looking for a new group activity, there is a mission waiting for you.</p>
+    <!-- Welcome section -->
+    <section class="panel">
+      <div class="welcome-grid">
+        <div class="welcome-copy">
+          <div class="eyebrow">Welcome to Neon Strike</div>
+
+          <h2>Your Next <span>Adventure</span> Starts Here</h2>
+
+          <p>
+            Looking for an exciting way to spend time with friends, celebrate
+            a special occasion, or bring a group together? Neon Strike Laser
+            Tag is designed around fast-paced fun, friendly competition, and
+            memorable moments.
+          </p>
+
+          <p>
+            Whether you're planning a birthday celebration or just looking
+            for something different to do, there's a mission waiting for you.
+          </p>
+
+          <a class="text-link" href="about.html">Get to Know Us &rarr;</a>
+        </div>
+
+        <div class="feature-box">
+          <h3>Why Enter the Arena?</h3>
+
+          <ul class="feature-list">
+            <li>Put your strategy and teamwork to the test.</li>
+            <li>Challenge friends in exciting laser tag missions.</li>
+            <li>Celebrate birthdays and group events.</li>
+            <li>Discover special offers and themed challenges.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main activities -->
+    <section class="panel">
+      <div class="section-heading">
+        <div class="eyebrow">Choose Your Mission</div>
+        <h2>Find Your <span>Next Challenge</span></h2>
+        <p>
+          From group celebrations to weekly offers, find a way to make your
+          next laser tag adventure your own.
+        </p>
+      </div>
+
       <div class="cards">
         <article class="card">
-          <h3>Enter the Arena</h3>
-          <p>Navigate glowing corridors, find cover, and work with your team to outscore the competition. Every round brings a new chance to change the game.</p>
-          <a class="button secondary" href="about.html">Meet Neon Strike</a>
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <h3>Laser Tag Action</h3>
+          <p>
+            Team up, plan your moves, and test your skills in a fictional
+            neon-themed laser tag adventure.
+          </p>
+          <a class="text-link" href="about.html">Learn About Us &rarr;</a>
         </article>
+
         <article class="card">
-          <h3>Celebrate Together</h3>
-          <p>Bring your favorite people together for a birthday or group celebration filled with friendly rivalry and shared memories.</p>
-          <a class="button" href="parties.html">View Events</a>
+          <div class="graphic-icon" aria-hidden="true">✦</div>
+          <h3>Parties &amp; Events</h3>
+          <p>
+            Make a celebration memorable with group activities, friendly
+            competition, and party options for your crew.
+          </p>
+          <a class="text-link" href="parties.html">Explore Party Options &rarr;</a>
         </article>
+
         <article class="card">
-          <h3>Play for Less</h3>
-          <p>Make room for more fun with themed weekly offers designed for friends, families, and players ready for another round.</p>
-          <a class="button secondary" href="specials.html">See Specials</a>
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <h3>Weekly Specials</h3>
+          <p>
+            Check out recurring themed days, special challenges, and ideas
+            for making every visit feel like a new mission.
+          </p>
+          <a class="text-link" href="specials.html">See the Specials &rarr;</a>
         </article>
       </div>
     </section>
 
-    <section class="banner">
-      <h2>Teamwork Wins the Night</h2>
-      <p>Laser tag is about more than aiming. Communicate, plan your next move, and help your teammates reach the objective. New players are welcome, and every match is a chance to improve.</p>
-      <a class="button" href="parties.html">Bring Your Crew</a>
+    <!-- Featured highlight -->
+    <section class="highlight">
+      <div class="eyebrow">Your Mission Awaits</div>
+      <h2>Ready to Make Your Move?</h2>
+      <p>
+        Bring your friends, build your strategy, and get ready for a
+        neon-filled adventure. Explore the site to discover party options,
+        weekly specials, and more about Neon Strike Laser Tag.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="button" href="parties.html">Plan Your Group Event</a>
+        <a class="button secondary" href="specials.html">Explore the Specials</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p><strong>NEON STRIKE LASER TAG</strong></p>
-    <p>Fictional location: 2450 Starlight Avenue, Iowa City, Iowa</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About Us</a> · <a href="parties.html">Parties and Events</a> · <a href="specials.html">Weekly Specials</a></p>
-    <p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+    <a class="logo" href="index.html">
+      NEON STRIKE
+      <span>LASER TAG</span>
+    </a>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties &amp; Events</a>
+      <a href="specials.html">Weekly Specials</a>
+    </div>
+
+    <p class="footer-location">Fictional location: Iowa City, Iowa.</p>
+
+    <div class="notice">
+      This is a fictional website created for educational purposes as part of
+      MKTG:4400 at the University of Iowa. It is not a real business.
+    </div>
   </footer>
 </body>
 </html>
