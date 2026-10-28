@@ -6,62 +6,319 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Discover themed weekly promotions at the fictional Neon Strike Laser Tag arena.">
   <title>Weekly Specials | Neon Strike Laser Tag</title>
+
   <style>
     :root {
-      --bg: #10111f; --panel: #1b1d31; --accent: #45f3e0;
-      --pink: #ff4fd8; --text: #f4f5ff; --muted: #c2c5d8;
+      --bg: #10111f;
+      --panel: #1b1d31;
+      --accent: #45f3e0;
+      --pink: #ff4fd8;
+      --purple: #916bff;
+      --text: #f4f5ff;
+      --muted: #b9bfd8;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
-    .notice { padding: 12px 18px; background: #282a40; color: white; text-align: center; font-size: .88rem; }
-    header { padding: 22px 6%; background: #151629; border-bottom: 2px solid var(--accent); }
-    .brand { color: var(--accent); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; letter-spacing: 2px; text-decoration: none; }
-    .tagline { margin: 2px 0 14px; color: var(--muted); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px; }
-    nav a { color: var(--text); text-decoration: none; padding: 8px 13px; border-radius: 6px; font-weight: bold; }
-    nav a:hover, nav a:focus, nav a[aria-current="page"] { background: var(--accent); color: #10111f; }
-    main { max-width: 1000px; margin: auto; padding: 32px 22px 55px; }
-    .intro { padding: clamp(28px, 6vw, 55px); border-radius: 14px; background: radial-gradient(ellipse at top, #30345a, #1b1d31 75%); border: 1px solid #414564; }
-    .eyebrow { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 3px; }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.15; margin: 10px 0; }
-    h2 { color: var(--accent); }
-    h3 { color: var(--pink); margin-top: 0; }
-    .intro p, .card p, .content p, .content li { color: var(--muted); }
-    .section { margin-top: 38px; }
-    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .card { background: var(--panel); border: 1px solid #343752; border-radius: 12px; padding: 23px; }
-    .day { display: inline-block; color: #10111f; background: var(--accent); padding: 5px 10px; border-radius: 5px; font-size: .85rem; font-weight: bold; }
-    .content { margin-top: 28px; padding: 24px; background: #191a2b; border-radius: 10px; }
-    .button { display: inline-block; background: var(--pink); color: #171020; padding: 12px 20px; border-radius: 7px; font-weight: bold; text-decoration: none; margin-top: 8px; }
 
-    /* Added calendar styles */
-    .calendar {
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .notice {
+      padding: 9px 16px;
+      background: #25213f;
+      border-bottom: 1px solid var(--purple);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #151629;
+      border-bottom: 1px solid #343653;
+      padding: 18px 6%;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a:focus,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 35px 20px 65px;
+      margin: auto;
+    }
+
+    /* Matching neon hero design */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid #45416d;
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 50% 45%,
+          #34215c 0%, #1b1d39 45%, #10111f 85%);
+      box-shadow: 0 0 28px #916bff22;
+    }
+
+    .page-hero::before,
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .page-hero::before {
+      inset: 0;
+      background:
+        linear-gradient(115deg, transparent 30%,
+          #45f3e055 30.3%, transparent 30.7%),
+        linear-gradient(155deg, transparent 56%,
+          #ff4fd855 56.3%, transparent 56.7%),
+        linear-gradient(25deg, transparent 65%,
+          #916bff66 65.3%, transparent 65.7%);
+    }
+
+    .page-hero::after {
+      width: 180px;
+      height: 180px;
+      border: 2px solid #45f3e077;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 18px #45f3e010,
+        0 0 0 38px #ff4fd810,
+        0 0 30px #45f3e033;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.1;
+      margin: 14px 0;
+      text-shadow: 0 0 22px #916bff99;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 18px auto 0;
+      color: #e2e5fa;
+    }
+
+    .target-art {
+      width: 115px;
+      height: 115px;
+      margin: 30px auto 0;
+      border: 3px solid var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      background: #10111f99;
+      box-shadow:
+        0 0 15px #45f3e088,
+        inset 0 0 18px #45f3e033;
+    }
+
+    .target-art::before,
+    .target-art::after {
+      content: "";
+      position: absolute;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    .target-art::before {
+      inset: 17px;
+    }
+
+    .target-art::after {
+      inset: 36px;
+      border-color: var(--accent);
+      background: #ff4fd855;
+      box-shadow: 0 0 15px var(--pink);
+    }
+
+    .target-cross {
+      position: absolute;
+      width: 145px;
+      height: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .target-cross.vertical {
+      transform: rotate(90deg);
+    }
+
+    /* Matching rounded panels and content cards */
+    .panel {
+      margin-top: 28px;
+      padding: 30px;
+      border: 1px solid #343653;
+      border-radius: 18px;
+      background: var(--panel);
+    }
+
+    h2 {
+      color: var(--accent);
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: white;
+      margin: 5px 0 10px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #141629;
+      border: 1px solid #373958;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .day {
+      display: inline-block;
+      padding: 5px 12px;
+      margin-bottom: 8px;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .card:nth-child(even) {
+      border-top: 3px solid var(--pink);
+    }
+
+    .card:nth-child(odd) {
+      border-top: 3px solid var(--accent);
+    }
+
+    .content {
       margin-top: 28px;
       padding: 24px;
-      background: var(--panel);
-      border: 1px solid #343752;
-      border-radius: 12px;
-      box-shadow: 0 0 18px rgba(69, 243, 224, 0.08);
+      background: #141629;
+      border: 1px solid #373958;
+      border-radius: 14px;
     }
+
+    /* Monthly calendar */
+    .calendar {
+      margin-top: 20px;
+      padding: 24px;
+      background: #141629;
+      border: 1px solid #373958;
+      border-radius: 14px;
+      box-shadow: 0 0 18px #45f3e010;
+    }
+
     .calendar h3 {
       text-align: center;
       color: var(--accent);
-      margin-bottom: 18px;
+      margin: 0 0 18px;
     }
+
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 6px;
     }
+
     .calendar-day {
       text-align: center;
       padding: 8px 2px;
       color: var(--accent);
-      font-size: 0.85rem;
+      font-size: 13px;
       font-weight: bold;
     }
+
     .calendar-date {
-      min-height: 62px;
+      min-width: 0;
+      min-height: 65px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -69,104 +326,253 @@
       gap: 3px;
       background: #252740;
       border: 1px solid #343752;
-      border-radius: 7px;
+      border-radius: 8px;
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 13px;
     }
+
     .calendar-date.special {
       border-color: var(--accent);
-      box-shadow: inset 0 0 8px rgba(69, 243, 224, 0.12);
+      background:
+        radial-gradient(ellipse at center, #34215c, #17192d);
+      box-shadow: inset 0 0 10px #45f3e018;
     }
+
     .calendar-date .event {
       color: var(--pink);
-      font-size: 0.65rem;
+      font-size: 10px;
       font-weight: bold;
+      line-height: 1.3;
     }
+
     .calendar-note {
       color: var(--muted);
       text-align: center;
-      font-size: 0.85rem;
-      margin-top: 16px;
+      font-size: 13px;
+      margin: 18px 0 0;
     }
 
-    footer { padding: 28px 20px; text-align: center; background: #151629; border-top: 2px solid var(--accent); color: var(--muted); }
-    footer a { color: var(--accent); }
-    footer p { margin: 8px auto; }
-    @media (max-width: 700px) {
-      header { padding: 20px; }
-      nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      nav a { text-align: center; background: #202238; }
-      main { padding: 22px 15px 40px; }
-      .cards { grid-template-columns: 1fr; }
-      .calendar { padding: 12px 8px; }
-      .calendar-grid { gap: 3px; }
-      .calendar-date { min-height: 48px; font-size: 0.85rem; }
-      .calendar-date .event { font-size: 0.55rem; }
-      .calendar-day { font-size: 0.7rem; }
+    .calendar-note strong {
+      color: var(--accent);
+    }
+
+    .graphic-icon {
+      font-size: 30px;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+
+    .cta {
+      margin-top: 28px;
+      padding: 28px;
+      border-radius: 16px;
+      text-align: center;
+      background: linear-gradient(110deg, #302052, #172d3c);
+      border: 1px solid #45f3e055;
+    }
+
+    .cta a,
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #10111f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cta a:hover,
+    .button:hover {
+      box-shadow: 0 0 15px #45f3e066;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #343653;
+      background: #0b0c17;
+    }
+
+    .footer-nav {
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      main {
+        padding: 22px 14px 40px;
+      }
+
+      .page-hero {
+        padding: 45px 16px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      .page-hero::after {
+        width: 130px;
+        height: 130px;
+      }
+
+      .calendar {
+        padding: 14px 8px;
+      }
+
+      .calendar-grid {
+        gap: 3px;
+      }
+
+      .calendar-date {
+        min-height: 52px;
+        font-size: 11px;
+        overflow-wrap: anywhere;
+      }
+
+      .calendar-date .event {
+        font-size: 8px;
+      }
+
+      .calendar-day {
+        font-size: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="notice">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+  <div class="notice">
+    This is a fictional website created for educational purposes as part of
+    MKTG:4400 at the University of Iowa. It is not a real business.
+  </div>
 
   <header>
-    <a class="brand" href="index.html">NEON STRIKE</a>
-    <p class="tagline">Light up the arena. Own the game.</p>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="parties.html">Parties and Events</a>
-      <a href="specials.html" aria-current="page">Weekly Specials</a>
-    </nav>
+    <div class="nav">
+      <a class="logo" href="index.html">
+        NEON STRIKE
+        <span>LASER TAG</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="parties.html">Parties &amp; Events</a>
+        <a href="specials.html" aria-current="page">Weekly Specials</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <p class="eyebrow">A new reason to play</p>
-      <h1>Big Energy.<br>Fresh Challenges.</h1>
-      <p>Every week brings a different way to enjoy the arena. From friendly team competitions to family-focused game nights, our fictional specials give players another reason to gather their crew and take aim.</p>
+    <section class="page-hero">
+      <div class="eyebrow">Weekly Offers • Special Missions • Family Fun</div>
+
+      <h1>Big Energy.<br><span>Fresh Challenges.</span></h1>
+
+      <p class="hero-copy">
+        Every week brings a different way to enjoy the arena. From friendly
+        team competitions to family-focused game nights, our fictional
+        specials give players another reason to gather their crew and take aim.
+      </p>
+
       <a class="button" href="#weekly-offers">Explore the Offers</a>
+
+      <div class="target-art" role="img"
+           aria-label="Decorative neon laser targeting graphic">
+        <div class="target-cross"></div>
+        <div class="target-cross vertical"></div>
+      </div>
     </section>
 
-    <section class="section" id="weekly-offers">
+    <section class="panel" id="weekly-offers">
       <h2>This Week at Neon Strike</h2>
-      <p>These fictional promotions are part of the class project. The days and offers below describe an imagined weekly schedule, not actual business deals.</p>
+      <p class="muted">
+        These fictional promotions are part of the class project. The days
+        and offers below describe an imagined weekly schedule, not actual
+        business deals.
+      </p>
 
       <div class="cards">
         <article class="card">
           <span class="day">MONDAY</span>
           <h3>Mission Monday</h3>
-          <p>Start the week with a strategy challenge. Players are encouraged to form balanced teams, communicate clearly, and work together to complete each round's objective.</p>
-          <p><strong>Featured activity:</strong> Team-versus-team missions.</p>
+          <p class="muted">
+            Start the week with a strategy challenge. Players are encouraged
+            to form balanced teams, communicate clearly, and work together
+            to complete each round's objective.
+          </p>
+          <p class="muted"><strong>Featured activity:</strong> Team-versus-team missions.</p>
         </article>
 
         <article class="card">
           <span class="day">WEDNESDAY</span>
           <h3>Midweek Match-Up</h3>
-          <p>Bring a friend and see how your strategies compare. Midweek Match-Up focuses on friendly competition, quick decisions, and learning from each round.</p>
-          <p><strong>Featured activity:</strong> Rotating team challenges.</p>
+          <p class="muted">
+            Bring a friend and see how your strategies compare. Midweek
+            Match-Up focuses on friendly competition, quick decisions,
+            and learning from each round.
+          </p>
+          <p class="muted"><strong>Featured activity:</strong> Rotating team challenges.</p>
         </article>
 
         <article class="card">
           <span class="day">FRIDAY</span>
           <h3>Glow Night</h3>
-          <p>Turn Friday into a neon-filled adventure. Imagine glowing arena lights, energetic music, and missions that encourage players to stay alert and support their teammates.</p>
-          <p><strong>Featured activity:</strong> Night-themed arena missions.</p>
+          <p class="muted">
+            Turn Friday into a neon-filled adventure. Imagine glowing arena
+            lights, energetic music, and missions that encourage players
+            to stay alert and support their teammates.
+          </p>
+          <p class="muted"><strong>Featured activity:</strong> Night-themed arena missions.</p>
         </article>
 
         <article class="card">
           <span class="day">SUNDAY</span>
           <h3>Family Mission Day</h3>
-          <p>Make time for an active family outing. Players can practice the basics, explore teamwork, and enjoy a shared challenge in a welcoming environment.</p>
-          <p><strong>Featured activity:</strong> Beginner-friendly team play.</p>
+          <p class="muted">
+            Make time for an active family outing. Players can practice
+            the basics, explore teamwork, and enjoy a shared challenge
+            in a welcoming environment.
+          </p>
+          <p class="muted"><strong>Featured activity:</strong> Beginner-friendly team play.</p>
         </article>
       </div>
     </section>
 
-    <!-- Added weekly specials calendar -->
-    <section class="section" id="specials-calendar">
+    <section class="panel" id="specials-calendar">
       <h2>Monthly Specials Calendar</h2>
-      <p>Use this calendar to see which days feature our fictional laser tag promotions.</p>
+      <p class="muted">
+        Use this calendar to see which days feature our fictional laser tag promotions.
+      </p>
 
       <div class="calendar">
         <h3>Weekly Specials Schedule</h3>
@@ -180,57 +586,125 @@
           <div class="calendar-day">Fri</div>
           <div class="calendar-day">Sat</div>
 
-          <div class="calendar-date">Every<br>Sunday<span class="event">Family Day</span></div>
-          <div class="calendar-date special">Every<br>Monday<span class="event">Mission</span></div>
+          <div class="calendar-date">
+            Every<br>Sunday
+            <span class="event">Family Day</span>
+          </div>
+
+          <div class="calendar-date special">
+            Every<br>Monday
+            <span class="event">Mission</span>
+          </div>
+
           <div class="calendar-date">Every<br>Tuesday</div>
-          <div class="calendar-date special">Every<br>Wednesday<span class="event">Match-Up</span></div>
+
+          <div class="calendar-date special">
+            Every<br>Wednesday
+            <span class="event">Match-Up</span>
+          </div>
+
           <div class="calendar-date">Every<br>Thursday</div>
-          <div class="calendar-date special">Every<br>Friday<span class="event">Glow Night</span></div>
+
+          <div class="calendar-date special">
+            Every<br>Friday
+            <span class="event">Glow Night</span>
+          </div>
+
           <div class="calendar-date">Every<br>Saturday</div>
         </div>
 
         <p class="calendar-note">
-          Highlighted days feature Mission Monday, Midweek Match-Up,
-          Glow Night, and Family Mission Day. All promotions are fictional
+          Highlighted days feature <strong>Mission Monday</strong>,
+          <strong>Midweek Match-Up</strong>, <strong>Glow Night</strong>,
+          and <strong>Family Mission Day</strong>. All promotions are fictional
           and created for this educational class project.
         </p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="panel">
       <h2>Seasonal Challenges</h2>
-      <div class="content">
-        <h3>Squad Score Challenge</h3>
-        <p>Bring your friends, pick a team name, and see how well you work together. The imagined challenge encourages players to communicate, try different strategies, and celebrate team achievements rather than focusing only on individual scores.</p>
 
-        <h3>First-Time Player Mission</h3>
-        <p>New to laser tag? This themed experience gives first-time players a chance to learn the equipment, understand the rules, and build confidence before joining a more competitive round.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <h3>Squad Score Challenge</h3>
+          <p class="muted">
+            Bring your friends, pick a team name, and see how well you work
+            together. The imagined challenge encourages players to communicate,
+            try different strategies, and celebrate team achievements rather
+            than focusing only on individual scores.
+          </p>
+        </article>
 
-        <h3>Family Team Challenge</h3>
-        <p>Families can split into teams and test their coordination through a series of friendly missions. The focus is on participation, cooperation, and making memories together.</p>
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <h3>First-Time Player Mission</h3>
+          <p class="muted">
+            New to laser tag? This themed experience gives first-time players
+            a chance to learn the equipment, understand the rules, and build
+            confidence before joining a more competitive round.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">✦</div>
+          <h3>Family Team Challenge</h3>
+          <p class="muted">
+            Families can split into teams and test their coordination through
+            a series of friendly missions. The focus is on participation,
+            cooperation, and making memories together.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section class="section">
+    <section class="panel">
       <h2>How to Make the Most of Your Visit</h2>
       <div class="content">
-        <ul>
+        <ul class="muted">
           <li>Check the featured theme before planning your outing.</li>
           <li>Bring comfortable clothing and closed-toe shoes for active play.</li>
           <li>Arrive with enough time to learn the rules and prepare your team.</li>
           <li>Keep an open mind and try a different strategy in each match.</li>
         </ul>
-        <p>For this educational website, the specials are illustrative examples only. No real discounts, prices, reservations, or promotional offers are available.</p>
+
+        <p class="muted">
+          For this educational website, the specials are illustrative examples
+          only. No real discounts, prices, reservations, or promotional offers
+          are available.
+        </p>
+
         <a class="button" href="parties.html">Explore Party Ideas</a>
       </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready for Your Next Mission?</h2>
+      <p class="muted">
+        Explore our fictional party packages and plan an imagined adventure
+        with your friends, family, or team.
+      </p>
+      <a href="parties.html">Explore Parties &amp; Events</a>
     </section>
   </main>
 
   <footer>
-    <p><strong>NEON STRIKE LASER TAG</strong></p>
-    <p>Fictional location: 2450 Starlight Avenue, Iowa City, Iowa</p>
-    <p><a href="index.html">Home</a> · <a href="about.html">About Us</a> · <a href="parties.html">Parties and Events</a> · <a href="specials.html">Weekly Specials</a></p>
-    <p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+    <strong>Neon Strike Laser Tag</strong>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties &amp; Events</a>
+      <a href="specials.html">Weekly Specials</a>
+    </div>
+
+    <p class="muted">Fictional location: Iowa City, Iowa.</p>
+
+    <div class="notice">
+      This is a fictional website created for educational purposes as part of
+      MKTG:4400 at the University of Iowa. It is not a real business.
+    </div>
   </footer>
 </body>
 </html>
