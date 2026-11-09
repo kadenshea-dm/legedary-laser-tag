@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore laser tag game modes, special missions, scoring, and strategies at Neon Strike Laser Tag in Iowa City, Iowa.">
+  <title>Games &amp; Missions | Neon Strike Laser Tag</title>
+
+  <style>
+    :root {
+      --bg: #10111f;
+      --panel: #1b1d31;
+      --accent: #45f3e0;
+      --pink: #ff4fd8;
+      --purple: #916bff;
+      --text: #f4f5ff;
+      --muted: #b9bfd8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .notice {
+      padding: 9px 16px;
+      background: #25213f;
+      border-bottom: 1px solid var(--purple);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #151629;
+      border-bottom: 1px solid #343653;
+      padding: 18px 6%;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      color: white;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 35px 20px 65px;
+      margin: auto;
+    }
+
+    /* Neon hero section */
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      text-align: center;
+      padding: 65px 25px;
+      border: 1px solid #45416d;
+      border-radius: 22px;
+      background:
+        radial-gradient(
+          ellipse at 50% 45%,
+          #34215c 0%,
+          #1b1d39 45%,
+          #10111f 85%
+        );
+      box-shadow: 0 0 28px #916bff22;
+    }
+
+    .page-hero::before,
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .page-hero::before {
+      top: 28%;
+      left: -10%;
+      width: 120%;
+      height: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent), 0 0 28px var(--accent);
+      transform: rotate(-12deg);
+      opacity: 0.75;
+    }
+
+    .page-hero::after {
+      right: 7%;
+      top: 16%;
+      width: 155px;
+      height: 155px;
+      border: 3px solid var(--pink);
+      border-radius: 50%;
+      box-shadow:
+        0 0 12px var(--pink),
+        inset 0 0 15px #ff4fd855;
+      opacity: 0.65;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(36px, 7vw, 62px);
+      line-height: 1.15;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px #916bff44;
+    }
+
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 16px #45f3e066;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #10111f;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px #45f3e066;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--pink);
+      border: 1px solid var(--pink);
+    }
+
+    .target-art {
+      position: absolute;
+      bottom: 18px;
+      left: 28px;
+      width: 72px;
+      height: 72px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px #45f3e066;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .target-art::before,
+    .target-art::after {
+      content: "";
+      position: absolute;
+      background: var(--accent);
+    }
+
+    .target-art::before {
+      width: 110%;
+      height: 2px;
+      left: -5%;
+      top: 50%;
+    }
+
+    .target-art::after {
+      height: 110%;
+      width: 2px;
+      top: -5%;
+      left: 50%;
+    }
+
+    .target-cross {
+      position: absolute;
+      inset: 16px;
+      border: 2px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    /* General panels */
+    .panel {
+      margin-top: 28px;
+      padding: 30px;
+      background: var(--panel);
+      border: 1px solid #343653;
+      border-radius: 18px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.3;
+    }
+
+    h2 span {
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    /* Game mode and mission cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 15px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .graphic-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      color: var(--accent);
+      background: #45f3e012;
+      border: 1px solid #45f3e055;
+      font-size: 25px;
+      font-weight: bold;
+      text-shadow: 0 0 12px #45f3e066;
+    }
+
+    .day {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 11px;
+      border-radius: 20px;
+      background: #916bff20;
+      border: 1px solid #916bff88;
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Scoring section */
+    .scoring-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .score-card {
+      padding: 22px;
+      text-align: center;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 14px;
+    }
+
+    .score-number {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 900;
+      text-shadow: 0 0 12px #45f3e044;
+    }
+
+    .score-card h3 {
+      font-size: 18px;
+    }
+
+    .score-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Tips section */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      background: #151629;
+      border: 1px solid #393b5a;
+      border-radius: 12px;
+    }
+
+    .tip-icon {
+      flex-shrink: 0;
+      color: var(--pink);
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .tip h3 {
+      color: var(--accent);
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .tip p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Featured mission */
+    .featured-mission {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid #ff4fd855;
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 80% 20%, #48234f, #1b1d31 70%);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .featured-mission h2 {
+      color: var(--pink);
+    }
+
+    .featured-mission p {
+      color: var(--muted);
+    }
+
+    .mission-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      border: 1px solid #45f3e055;
+      border-radius: 15px;
+      background:
+        radial-gradient(circle, #34215c 0%, #151629 70%);
+      color: var(--accent);
+      font-size: 85px;
+      text-shadow: 0 0 20px var(--accent);
+    }
+
+    /* Final CTA */
+    .cta {
+      margin-top: 28px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid #ff4fd855;
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #48234f, #1b1d31 70%);
+    }
+
+    .cta h2 {
+      color: var(--pink);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 10px auto 22px;
+      color: var(--muted);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid #343653;
+      background: #0b0c17;
+    }
+
+    .footer-nav {
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer-location {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .scoring-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-art {
+        min-height: 150px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      main {
+        padding: 22px 14px 40px;
+      }
+
+      .page-hero {
+        padding: 45px 16px;
+      }
+
+      .page-hero::after {
+        width: 90px;
+        height: 90px;
+        top: 10px;
+        right: -20px;
+      }
+
+      .target-art {
+        width: 48px;
+        height: 48px;
+        bottom: 12px;
+        left: 12px;
+      }
+
+      .target-cross {
+        inset: 10px;
+      }
+
+      .cards,
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 22px 18px;
+      }
+
+      .featured-mission,
+      .cta {
+        padding: 25px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="notice">
+    This is a fictional website created for educational purposes as part of
+    MKTG:4400 at the University of Iowa. It is not a real business.
+  </div>
+
+  <header>
+    <div class="nav">
+      <a class="logo" href="index.html">
+        NEON STRIKE
+        <span>LASER TAG</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="parties.html">Parties &amp; Events</a>
+        <a href="specials.html">Weekly Specials</a>
+        <a href="games.html" aria-current="page">Games &amp; Missions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero section -->
+    <section class="page-hero">
+      <div class="eyebrow">Choose Your Mode • Complete Your Mission</div>
+
+      <h1>Enter the <span>Battle Zone</span></h1>
+
+      <p class="hero-copy">
+        Every mission brings a new challenge. Explore our game modes,
+        test your strategy, and discover what it takes to become a
+        Neon Strike champion.
+      </p>
+
+      <a class="button" href="#game-modes">Explore Game Modes</a>
+
+      <div class="target-art" aria-hidden="true">
+        <div class="target-cross"></div>
+      </div>
+    </section>
+
+    <!-- Game modes -->
+    <section class="panel" id="game-modes">
+      <div class="section-heading">
+        <div class="eyebrow">Find Your Play Style</div>
+        <h2>Choose Your <span>Game Mode</span></h2>
+        <p>
+          Whether you prefer working as a team or competing on your own,
+          there's a game mode for every type of player.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <span class="day">Team Competition</span>
+          <h3>Team Battle</h3>
+          <p>
+            Split into two teams and compete to earn the highest score.
+            Work together, protect your teammates, and outscore the
+            opposing team before time runs out.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <span class="day">Individual Competition</span>
+          <h3>Free-for-All</h3>
+          <p>
+            Every player is on their own. Tag as many opponents as
+            possible while avoiding incoming shots. The player with
+            the highest score wins.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">✦</div>
+          <span class="day">Objective Mission</span>
+          <h3>Capture the Flag</h3>
+          <p>
+            Work with your team to reach the opposing team's base,
+            capture their flag, and bring it back safely while
+            defending your own.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">★</div>
+          <span class="day">Survival Challenge</span>
+          <h3>Last Player Standing</h3>
+          <p>
+            Compete against every other player in an elimination-style
+            challenge. Stay alert, use the arena to your advantage,
+            and try to be the final player remaining.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Special missions -->
+    <section class="panel" id="missions">
+      <div class="section-heading">
+        <div class="eyebrow">Take on Something Different</div>
+        <h2>Special <span>Missions</span></h2>
+        <p>
+          Ready for a different kind of challenge? These themed missions
+          add new objectives and twists to the arena.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">✧</div>
+          <span class="day">Speed Challenge</span>
+          <h3>Reactor Rush</h3>
+          <p>
+            Teams race to activate designated targets throughout the
+            arena. The first team to complete all objectives earns
+            the victory.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">⚡</div>
+          <span class="day">Survival Challenge</span>
+          <h3>Neon Survival</h3>
+          <p>
+            Stay in the game as long as possible while facing
+            opponents from every direction. Strategy and awareness
+            are the keys to survival.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">◎</div>
+          <span class="day">Team Objective</span>
+          <h3>Target Takeover</h3>
+          <p>
+            Teams compete to control glowing target zones around
+            the arena. Hold each zone to earn points and take
+            control of the mission.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="graphic-icon" aria-hidden="true">★</div>
+          <span class="day">Featured Challenge</span>
+          <h3>Midnight Showdown</h3>
+          <p>
+            Enter a special neon-themed competition where teams
+            face off in a fast-paced battle for the highest score.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Featured mission -->
+    <section class="featured-mission">
+      <div class="featured-grid">
+        <div>
+          <div class="eyebrow">Featured Mission</div>
+          <h2>Target Takeover</h2>
+
+          <p>
+            Your team has one objective: take control of the arena.
+            Locate the glowing target zones, work together to defend
+            them, and earn points by maintaining control.
+          </p>
+
+          <p>
+            The team with the most points when time expires wins
+            the mission. Communication and teamwork make all the
+            difference.
+          </p>
+
+          <a class="button" href="#scoring">Learn About Scoring</a>
+        </div>
+
+        <div class="mission-art" role="img"
+             aria-label="Decorative neon target graphic">
+          ◎
+        </div>
+      </div>
+    </section>
+
+    <!-- Scoring information -->
+    <section class="panel" id="scoring">
+      <div class="section-heading">
+        <div class="eyebrow">Know the Rules</div>
+        <h2>How <span>Scoring Works</span></h2>
+        <p>
+          Every game is about more than just tagging opponents.
+          Different actions can help your team earn points and
+          complete its mission.
+        </p>
+      </div>
+
+      <div class="scoring-grid">
+
+        <article class="score-card">
+          <span class="score-number">01</span>
+          <h3>Tag Opponents</h3>
+          <p>
+            Earn points by successfully tagging opposing players
+            during a match.
+          </p>
+        </article>
+
+        <article class="score-card">
+          <span class="score-number">02</span>
+          <h3>Complete Objectives</h3>
+          <p>
+            Earn additional points by completing mission goals
+            and capturing designated targets.
+          </p>
+        </article>
+
+        <article class="score-card">
+          <span class="score-number">03</span>
+          <h3>Support Your Team</h3>
+          <p>
+            Work together, communicate, and help your team
+            accomplish its mission.
+          </p>
+        </article>
+
+      </div>
+
+      <p class="muted" style="text-align:center; margin-top:20px; font-size:13px;">
+        Scoring descriptions are fictional examples created for this
+        educational website.
+      </p>
+    </section>
+
+    <!-- Tips section -->
+    <section class="panel">
+      <div class="section-heading">
+        <div class="eyebrow">Improve Your Game</div>
+        <h2>Tips for <span>Winning</span></h2>
+        <p>
+          A good strategy can make a big difference. Keep these tips
+          in mind before entering your next mission.
+        </p>
+      </div>
+
+      <div class="tips-grid">
+
+        <article class="tip">
+          <div class="tip-icon">✦</div>
+          <div>
+            <h3>Communicate</h3>
+            <p>
+              Talk with your teammates and share information about
+              opponent locations and mission objectives.
+            </p>
+          </div>
+        </article>
+
+        <article class="tip">
+          <div class="tip-icon">⚡</div>
+          <div>
+            <h3>Keep Moving</h3>
+            <p>
+              Stay active throughout the arena and avoid remaining
+              in one spot for too long.
+            </p>
+          </div>
+        </article>
+
+        <article class="tip">
+          <div class="tip-icon">◎</div>
+          <div>
+            <h3>Watch Your Surroundings</h3>
+            <p>
+              Pay attention to the arena and stay aware of where
+              opponents and teammates are positioned.
+            </p>
+          </div>
+        </article>
+
+        <article class="tip">
+          <div class="tip-icon">★</div>
+          <div>
+            <h3>Work Together</h3>
+            <p>
+              Coordinate your strategy and help teammates complete
+              objectives instead of focusing only on individual scores.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta">
+      <div class="eyebrow">Your Next Mission Awaits</div>
+
+      <h2>Ready to Enter the Arena?</h2>
+
+      <p>
+        Gather your team, choose your challenge, and get ready
+        for a neon-filled adventure. Explore our party packages
+        or check out this week's specials.
+      </p>
+
+      <div class="cta-buttons">
+        <a class="button" href="parties.html">Explore Party Packages</a>
+        <a class="button secondary" href="specials.html">View Weekly Specials</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a class="logo" href="index.html">
+      NEON STRIKE
+      <span>LASER TAG</span>
+    </a>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="parties.html">Parties &amp; Events</a>
+      <a href="specials.html">Weekly Specials</a>
+      <a href="games.html">Games &amp; Missions</a>
+    </div>
+
+    <p class="footer-location">Fictional location: Iowa City, Iowa.</p>
+
+    <div class="notice">
+      This is a fictional website created for educational purposes as part of
+      MKTG:4400 at the University of Iowa. It is not a real business.
+    </div>
+  </footer>
+
+</body>
+</html>
