@@ -4,10 +4,10 @@
 
 The experiment will test the homepage (`index.html`) of the Neon Strike Laser Tag website.
 
-The single element being changed is the wording of the main call-to-action button in the homepage hero section.
+The single element being changed is an additional call-to-action button in the homepage hero section.
 
 - **Version A:** "Explore Parties & Events"
-- **Version B:** "Plan Your Laser Tag Adventure"
+- **Version B:** "Explore Parties & Events" & "Plan Your Laser Tag Adventure"
 
 Both buttons will link to the same Parties & Events page. All other page content, images, colors, layout, and links will remain identical.
 
@@ -19,7 +19,7 @@ The wording "Plan Your Laser Tag Adventure" may be more effective because it giv
 
 ## 3. Model, Persona, Prompt, and Assignment
 
-**Model:** GPT-6. I will use the same model and settings for every trial and record the exact model/version used.
+**Model:** Claude Sonnet 5.5. I will use the same model and settings for every trial and record the exact model/version used.
 
 **Persona:** A college student in Iowa City who is looking for a fun activity to do with friends.
 
